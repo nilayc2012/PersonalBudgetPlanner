@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Transactions By Amount</title>
+	</head>
+	<body>
+		<div class="form4">
+			<h3><a href='/user_profile/home_page' class= 'back2'>Back</a></h3>
+			<h1 class="TbyA">Transactions By Amount</h1>
+			<%= form_tag("/transactions/get_by_amount", :method=>"post") do %>
+			<div class="field-wrap3">
+				<div class="field_letter3">
+					From Amount<span class="req2">*</span>
+				</div>
+				<%= text_field_tag(:famt, nil, class: "text_field1") %>
+			</div>
+			<div class="field-wrap3">
+				<div class="field_letter3">
+					To Amount<span class="req2">*</span>
+				</div>
+				<%= text_field_tag(:tamt, nil, class: "text_field2") %>
+			</div>
+			<% @wmsg=session[:amount_message]
+			if !@wmsg.nil? || @wmsg=="Amount can only be number"%>
+				<h4 class="amount_message"><%= session[:amount_message]%><h4> <%
+				session[:amount_message]=nil
+			end %>
+				<%= submit_tag("Display", class: "button button-block") %>
+			<% end %>
+		</div>
+		<%
+		if session[ :dmsg ]=="deleted"
+		%>
+		<script>
+			window.alert("Expense report deleted")
+		</script>
+		<%
+		session[ :dmsg ]=nil
+		end%>
+	</body>
+</html>

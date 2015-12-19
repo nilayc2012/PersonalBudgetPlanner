@@ -1,0 +1,2 @@
+module EditNotificationHelper
+end

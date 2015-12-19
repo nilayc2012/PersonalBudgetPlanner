@@ -1,0 +1,99 @@
+
+$body-bg: #c1bdba;
+$form-bg: #13232f;
+$white: #ffffff;
+
+$main: #1ab188;
+$main-dark: darken($main,5%);
+
+$thin: 300;
+$bold: 600;
+$br: 4px;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+	overflow-y: scroll; 
+}
+
+body {
+  background:$body-bg;
+}
+
+
+.form2 {
+  background:rgba($form-bg,.9);
+  padding: 40px;
+  max-width:600px;
+  margin:40px auto;
+  border-radius:$br;
+  box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+}
+.back_trans {
+  font-size:20px;
+  margin:0 0 40px 0;
+  font-weight: bold;
+}
+
+
+
+.TbyD {
+  font-size: 250%;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align:center;
+  color:$white;
+  font-weight:$thin;
+  margin:0 0 40px;
+}
+
+
+.select_date_style1 {
+	margin-top: 20px;
+	margin-left: 15px;
+}
+
+.field_letter1 {
+  position:relative;
+  transform:translateY(4px);
+  font-weight: bold;
+  left:13px;
+  color:rgba($white,.5);
+  transition:all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size:20px;
+}
+
+.field-wrap1 {
+  position:relative;
+  margin-bottom:40px;
+  	color: $white;
+	
+}
+
+
+
+.button {
+  border:0;
+  outline:none;
+  border-radius:0;
+  padding:15px 0;
+  font-size:2rem;
+  font-weight:$bold;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  background:$main;
+  color:$white;
+  transition:all.5s ease;
+  -webkit-appearance: none;
+  &:hover, &:focus {
+    background:$main-dark;
+  }
+}
+
+.button-block {
+  display:block;
+  width:100%;
+}

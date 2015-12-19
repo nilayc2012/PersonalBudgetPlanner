@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key: 757vudumtlb90j
+    authorize: true
+    lang: en_US
+</script>
+<script type="text/javascript">
+    function onLinkedInLoad() {
+        IN.UI.Authorize().place();      
+        IN.Event.on(IN, "auth", function () { 
+          onLogin(); 
+        });
+        IN.Event.on(IN, "logout", function () {
+         onLogout();
+        });
+    }
+    function onLogin() {
+        IN.API.Profile("me").result(displayResult);
+    }  
+    function displayResult(profiles) {
+        member = profiles.values[0];
+        alert(member.id + " Hello " +  member.firstName + " " + member.lastName);
+        window.location.href="/user_profile/home_page";
+    }  
+    function getProfileData() {
+        IN.API.Raw("/people/~").result(onSuccess).error(onError);
+    }
+    
+function loadSocial() {
+    //Linked-in
+    if (typeof (IN) != 'undefined') {
+        IN.parse();
+    } else {
+        $.getScript("http://platform.linkedin.com/in.js");
+    }
+
+    //Google - Note that the google button will not show if you are opening the page from disk - it needs to be http(s)
+    if (typeof (gapi) != 'undefined') {
+        $(".g-plusone").each(function () {
+            gapi.plusone.render($(this).get(0));
+        });
+    } else {
+        $.getScript('https://apis.google.com/js/plusone.js');
+    }
+}
+</script>
+
+    <%if session[:status] == "logged" %>
+    <script src="user_register.js">
+    </script>
+    <% session[:status]=nil
+    end %>
+    <title>User Login</title>
+  </head>
+  <body>   
+<script>
+  $(document).ready(function() {
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId   : '113162315685487',
+        cookie  : true, // enable cookies to allow the server to access the session
+        xfbml   : true, // parse XFBML
+        oauth   : true, // enable OAuth 2.0
+        status : false
+      });
+      // whenever the user logs in, we refresh the page
+    };
+
+    (function() {
+      var e = document.createElement('script'); e.async = true;
+      e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+      document.getElementById('fb-root').appendChild(e);
+    }());
+
+  });
+  
+  function checkLoginState() {
+    FB.Event.subscribe('auth.login', function(response) {
+      if (response.authResponse) {
+        window.location.href="/user_profile/home_page";
+      }
+    });
+    var uid=0;
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;  
+    } 
+ }
+ );
+   FB.api(uid, function(response) {
+   window.location.href="/user_profile/home_page";
+});  
+  } 
+</script>
+    <div class="project-title">
+      Personal Budget Planner
+    </div>
+    <div class="form">
+<div id="fb-loc">
+      <div id="fb-root"></div>
+      <fb:login-button scope="email, public_profile" onlogin="checkLoginState();" size="large">Log in  </fb:login-button>
+      </div>
+<span id="signinButton">
+  <span
+    class="g-signin"
+    data-callback="signinCallback"
+    data-clientid="687958606850-10inrondnp1jgq8g717tcocei13pc35g.apps.googleusercontent.com"
+    data-cookiepolicy="single_host_origin"
+   data-scope="https://www.googleapis.com/auth/plus.login">
+  </span>
+</span>
+<script>
+  function signinCallback(authResult) {
+  if (authResult['status']['signed_in']) {
+    gapi.client.load('plus','v1', function(){
+    var request = gapi.client.plus.people.get({
+   'userId': 'me'
+ });
+ request.execute(function(resp) {
+   var name = resp.displayName.split(" ");
+   window.location.href="/user_profile/home_page";
+ });
+});
+  } else {
+    console.log('Sign-in state: ' + authResult['error']);
+  }
+}
+</script>
+<button id ="linkedin" onclick = "onLinkedInLoad()"></button>
+      <h1 class="login-title">Welcome</h1>
+      <%= form_tag("/user_login/auth_user", :method=>"post", :class=>"login") do %>
+      <%= text_field_tag(:uname, nil ,class: "login-input", placeholder: "Username", :required => true)%>
+      <%= password_field_tag(:pwd, nil , class: "login-input", placeholder: "Password", :required => true)%>
+      <% @wmsg=session[:message]
+      if !@wmsg.nil?
+      %>
+      <h4 class="message"><%= session[:message]%><h4> <%
+      session[:message]=nil
+      end %>
+      <%= submit_tag("Login", class: "login-button") %>
+      <%= link_to "Sign Up", "/user_register/new_user", method: "get", class: "newuser" %>
+      <% end %> <span><%= link_to "About", "/about/display_about", method: "get", class: "about" %><a href='mailto:nilay.chakraborty@cerner.com, Manoj.Satishkumar@Cerner.com, Vikram.Raddi@Cerner.com' class="support">Support</a></span>
+    </div>
+    <h4 class="copyright"> © 2015 <span class="team">"Innov-a-Cern"</span><span class="tech">Powered by <span class="language">"Ruby on Rails"</span></span></h4>
+  </body>
+</html>
+

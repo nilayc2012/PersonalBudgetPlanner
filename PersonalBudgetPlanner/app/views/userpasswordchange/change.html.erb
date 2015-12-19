@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+    </head>
+      <body>  
+      <div class="project-title">
+      Personal Budget Planner
+      </div>
+      <div class="form">  
+      <h1 class="reg-title">Change Password</h1>
+      <%= form_tag("/user_login/change_pwd", :method=>"post", :class=>"reg" ) do %>
+      <%= password_field_tag(:currentpwd, nil  ,class: "reg-input", :id => "pd",  placeholder: "Current Password", :required => true)%>
+      <%= password_field_tag(:newpwd, nil  ,class: "reg-input", :id => "pd",  placeholder: "New Password", :required => true)%>
+      <%= password_field_tag(:confirmnewpwd, nil , class: "reg-input",:id => "cpd", placeholder: "Retype-New Password", :required => true )%>
+      <%= submit_tag("Submit", class: "reg-button" ) %>
+      <div > <%= link_to "Back", "/welcome/index", method: "get", class: "newuser" %></div>
+      <% end %>
+      <%
+      if session[ :msg ]=="changed"
+      %>
+      <script>
+        alert("Password changed successfully");
+      </script>
+      <%
+      session[ :msg]=nil
+      elsif session[ :msg ]=="not match" %>
+      <script>
+        alert("Passwords don't match");
+      </script>
+      <%
+      session[ :msg]=nil
+      elsif session[:msg]=="incorrect" %>
+      <script>
+        alert("The Current password entered is incorrect");
+      </script>
+      <%
+      session[ :msg]=nil
+      end %>
+  </body>
+
+</html>

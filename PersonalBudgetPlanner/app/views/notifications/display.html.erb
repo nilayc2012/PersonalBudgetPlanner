@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Notifications</title>
+  </head>
+  <body>
+  <div class="form_type">     
+  <h3><a href='/user_profile/home_page' class= 'back1'>Back</a></h3>
+    <h1 class="TbyType">Notifications</h1>    
+    <table border="3" class="table-style1"> 
+    <th>Reminder</th>
+    <% if !@notifications_list.any? %>
+      <h1 class="error_message">You don't have any notifications at the moment</h1>
+    <% else %>
+      <% @notifications_list.each do |n| %>
+      <tr>
+      <td><%= n %></td>   
+      </tr>
+      <% end %>
+    <% end %>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+module NeditNotificationHelper
+end

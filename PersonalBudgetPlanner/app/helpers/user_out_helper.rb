@@ -1,0 +1,2 @@
+module UserOutHelper
+end

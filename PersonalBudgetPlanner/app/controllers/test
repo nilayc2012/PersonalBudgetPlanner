@@ -1,0 +1,19 @@
+Inheritance
+
+
+class A
+  def x1
+    a=3
+    x2(a)
+  end
+  def x2(a)
+    puts "I am from x2 #{a}"
+  end
+end
+
+
+
+
+
+
+

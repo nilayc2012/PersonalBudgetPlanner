@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Transactions</title>
+	</head>
+	<body>
+		<div class="form1">
+		<h1 class="category">Categories</h1>
+		<ul class="tab1-group1">
+			<li class="tab1 active1">
+				<h3><a href="/transactions/select_by_date.html">Transactions By Date</a></h3>
+			</li>
+			<li class="tab1 active2">
+				<h3><a href="/transactions/select_by_type.html">Transactions By Type</a></h3>
+			</li>
+			<li class="tab1 active3">
+				<h3><a href="/transactions/select_by_amount.html">Transactions by Amount</a></h3>
+			</li>
+		</ul>
+		<%= form_tag("/user_profile/home_page", :method=>"post") do %>
+			<%= submit_tag("Back", class: "button1 button1-block1") %>
+		<% end %>
+		</div>
+	</body>
+</html>

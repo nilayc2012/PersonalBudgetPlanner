@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails PersonalBudgetPlanner: development" uuid="ea004629-0494-412a-8874-4be0e4582f1d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails PersonalBudgetPlanner: test" uuid="d2fc2824-545d-4815-9a3f-965dbc7bb7af">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

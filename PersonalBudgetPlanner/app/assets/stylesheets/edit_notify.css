@@ -1,0 +1,8 @@
+form5 {
+background:rgba($form-bg,.9);
+padding: 40px;
+max-width:900px;
+margin:40px auto;
+border-radius:$br;
+box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+}

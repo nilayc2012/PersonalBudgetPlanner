@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="byamount.css.scss">
+    <title>Transactions By Amount</title>
+	<script src="printScript.js" type="text/javascript" ></script>
+  </head>
+  <body>
+    <div class="form_type2">
+      <h3><a href='/user_profile/home_page' class= 'back1'>Back</a></h3>
+      <h1 class="TbyAmount">Transactions By Amount</h1>
+      <% if !@expense_list.any? %>
+      <h1 class="error_message">No Transactions Present</h1>
+      <% else %>
+	    <%= link_to 'Print', '#',:onclick => 'printData()', :class => 'back2' %>
+      <table border="3" class="table-style2" id ="printTable">
+       <th>Expense Type</th><th>Expense Amount</th><th>Expense Date</th><th>Expense Description</th><th>Action</th>
+        <% @expense_list.each do |exp| %>
+        <tr>
+          <td><%= exp.expense_type %></td>
+          <td><%= exp.expense_amount %></td>
+          <td><%= exp.expense_date %></td>
+          <td><%= exp.expense_desc %></td>
+          <td> <% session[:exp_id]=nil%>
+          <%= form_tag("/edit_expense/edit", :method=>"post") do%>
+          <%= hidden_field_tag 'exp_id', exp.id %>
+          <div>
+            <%= submit_tag("Edit")%>
+          </div> <% end %>
+          <%= form_tag("/edit_expense/delete", :method=>"post") do%>
+          <%= hidden_field_tag 'exp_id', exp.id %>
+          <div>
+            <%= submit_tag("Delete", :onclick=> "return confirm('Are you sure you want to delete the entry?')")%>
+          </div> <% end %> </td>
+        </tr>
+        <% end %>
+      </table>
+      <% end %>
+      <h3><a href='/transactions/select_by_amount.html' class= 'back1'>Back</a></h3>
+    </div>
+  </body>
+</html>

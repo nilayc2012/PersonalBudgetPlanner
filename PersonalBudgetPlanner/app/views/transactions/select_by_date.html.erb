@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Transactions By Date</title>
+	</head>
+	<body>
+		<div class="form2">
+			<h3><a href='/user_profile/home_page' class= 'back_trans'>Back</a></h3>
+			<h1 class="TbyD">Transactions By Date</h1>
+			<%= form_tag("/transactions/get_by_date", :method=>"post") do %>
+			<div class="field-wrap1">
+				<div class="field_letter1">
+					From Date :
+				</div>
+				<div class="select_date_style1">
+					<%= select_date Date::today, :prefix => 'fdate' %>
+				</div>
+			</div>
+			<div class="field-wrap1">
+				<div class="field_letter1">
+					To Date :
+				</div>
+				<div class="select_date_style1">
+					<%= select_date Date::today, :prefix => 'tdate' %>
+				</div>
+			</div>
+			<%= submit_tag("Display" , class: "button button-block") %>
+			<% end %>
+		</div>
+		<%
+		if session[ :dmsg ]=="deleted"
+		%>
+		<script>
+			window.alert("Expense report deleted")
+		</script>
+		<%
+		session[ :dmsg ]=nil
+		end%>
+	</body>
+</html>

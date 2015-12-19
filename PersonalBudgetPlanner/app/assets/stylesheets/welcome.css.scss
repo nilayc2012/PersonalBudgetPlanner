@@ -1,0 +1,252 @@
+html, body, div, span, applet, object, iframe,
+h1, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font: 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #404040;
+  background-image: url("calculette.jpg");
+}
+
+.form {
+  background:rgba(#13232f,.9);
+  padding: 20px;
+  min-height: 570px;
+  margin:33px auto;
+  border-radius: 4px;
+  box-shadow:0 4px 10px 4px rgba(#13232f,.3);
+}
+.project-title {
+	background:rgba(#13232f,.9);
+	height: 100px;
+	box-shadow:0 4px 10px 4px rgba(#13232f,.3);
+	color: #1ab188;
+	text-align: center;
+	padding: 40px;
+	font-size : 40px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+
+
+.about {
+	position: absolute;
+	top: 660px;
+    left: 680px;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.newuser {
+	position: relative;
+	top: 25px;
+    right: -166px;
+	font-weight: bold;
+	color: rgba(#13232f,.9);
+	font-size : 16px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.copyright {
+	position: absolute;
+	color: #014D71;
+    left: 80px;
+	bottom: 10px;
+}
+
+.team {
+	color: #01121C;
+
+}
+
+.support {
+	position: absolute;
+	top: 660px;
+    left: 850px;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.tech {
+	position: relative;
+    right: -1040px;
+}
+.language {
+	color: #01121C;
+}
+
+.message
+{
+	font-size: 100%;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  text-align:center;
+  color: red;
+
+}
+
+.login-title {
+  width: 430px;
+  line-height: 43px;
+  margin: 50px auto 20px;
+  font-size: 19px;
+  font-weight: 500;
+  color: white;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  background: #d7604b;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, #dc745e, #d45742);
+  background-image: -moz-linear-gradient(top, #dc745e, #d45742);
+  background-image: -o-linear-gradient(top, #dc745e, #d45742);
+  background-image: linear-gradient(to bottom, #dc745e, #d45742);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.login {
+  margin: 0 auto;
+  width: 430px;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 3px;
+  min-height: 350px;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+input {
+  font-family: inherit;
+  font-size: 150%;
+  color: inherit;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.login-input {
+  display: block;
+  width: 100%;
+  height: 88px;
+  margin-top: 2px;
+  font-weight: 500;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+.login-input:focus {
+  border-color: #1e9ce6;
+  outline: 0;
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  height: 52px;
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+  background: #fcfcfc;
+  border: 1px solid;
+  border-color: #d8d8d8 #d1d1d1 #c3c3c3;
+  border-radius: 2px;
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(top, #00CED1, #00BFFF);
+  background-image: -moz-linear-gradient(top, #00CED1, #00BFFF);
+  background-image: -o-linear-gradient(top, #00CED1, #00BFFF);
+  background-image: linear-gradient(to bottom, #00CED1, #00BFFF);
+  -webkit-box-shadow: inset 0 -1px rgba(0, 0, 0, 0.03), 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.03), 0 1px rgba(0, 0, 0, 0.04);
+}
+.login-button:active {
+  background: #eee;
+  border-color: #c3c3c3 #d1d1d1 #d8d8d8;
+  background-image: -webkit-linear-gradient(top, #eeeeee, #fcfcfc);
+  background-image: -moz-linear-gradient(top, #eeeeee, #fcfcfc);
+  background-image: -o-linear-gradient(top, #eeeeee, #fcfcfc);
+  background-image: linear-gradient(to bottom, #eeeeee, #fcfcfc);
+  -webkit-box-shadow: inset 0 1px rgba(0, 0, 0, 0.03);
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.03);
+}
+.login-button:focus {
+  outline: 0;
+}
+#signinButton {
+position:absolute;
+text-align: center;
+top: 155px;
+left:875px;
+ border: 1px solid;
+}
+
+#fb-loc{
+position:absolute;
+text-align: center;
+top: 157px;
+left:595px;
+ border: 1px solid;
+}
+
+#linkedin {
+position:absolute;
+text-align: center;
+ border: 1px solid;
+top: 157px;
+left:730px;
+width: 85px;
+height: 25px;
+background-image: url('Sign-In-Small---Active.png');
+background-repeat: no-repeat;
+}
+
+

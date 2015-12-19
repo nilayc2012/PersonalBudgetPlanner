@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Transactions By Type</title>
+	</head>
+	<body>
+		<div class="form3">
+			<h3><a href='/user_profile/home_page' class= 'back1'>Back</a></h3>
+			<h1 class="TbyT">Transactions By Type</h1>
+			<%= form_tag("/transactions/get_by_type", :method=>"post") do %>
+			<div class="field-wrap2">
+				<div class="field_letter2">
+					Type :
+				</div>
+				<%= select_tag(:btype, options_for_select(@type_options), class: "select_style1") %>
+			</div>
+			<%= submit_tag("Display", class: "button button-block") %>
+			<% end %>
+		</div>
+		<%
+		if session[ :dmsg ]=="deleted"
+		%>
+		<script>
+			window.alert("Expense report deleted")
+		</script>
+		<%
+		session[ :dmsg ]=nil
+		end%>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="shareduser.css.scss">
+    <title>Transactions By Amount</title>
+  </head>
+  <body>
+    <div class="form_type3">
+      <h3><a href='/user_profile/home_page' class= 'back1'>Back</a></h3>
+      <h1 class="sharedUser">Shared Transactions</h1>
+      <% if !@shared_expense.any? %>
+      <h1 class="error_message">No Transactions Present</h1>
+      <% else %>
+      <table border="3" class="table-style3">
+        <th>User Name</th><th>Expense Type</th><th>Expense Amount</th><th>Expense Date</th><th>Expense Description</th>
+        <% @shared_expense.each do |exp| %>
+        <tr>
+          <td><%= exp.user_name %></td>
+          <td><%= exp.expense_type %></td>
+          <td><%= exp.expense_amount %></td>
+          <td><%= exp.expense_date %></td>
+          <td><%= exp.expense_desc %></td>
+        </tr>
+        <% end %>
+      </table>
+      <%end%>
+    <!--  <h3><a href='/expense_details/fill_expense.html' class= 'back1'>Back</a></h3> -->
+    </div>
+  </body>
+</html>

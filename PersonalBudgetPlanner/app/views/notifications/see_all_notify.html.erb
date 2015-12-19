@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <% if session[:status] == "logged" %>
+   <script>
+    function preventBack() {
+    window.history.forward();
+    }
+    window.onunload=preventBack();
+   </script>
+  <%end%>
+   <title></title>
+</head>
+ <body>
+  <div class="form_type"> 
+   <%= link_to "Back", "/user_profile/home_page", class: "logout" %>
+  <h1 class="fill">Notifications</h1>
+    <% if !@notifications.any? %>
+      <h1 class="error_message">No Reminders Present Please Add Reminders</h1>
+        <%= link_to "Add", "/notifications/add", class: "logout" %>
+    <% else %>
+    <table border="1" class="table-style2" id ="printTable">
+      <th>Notifications</th><th>Actions</th>
+        <% @notifications.each do |notify| %>
+        <tr>
+        <td><%= notify.notify_string%></td><td>
+          <%= form_tag("/notifications/edit", :method=>"post") do%>
+          <%= hidden_field_tag 'not_id', notify.id %>
+        <div>
+          <%= submit_tag("EDIT")%>
+        </div> <% end %>
+          <%= form_tag("/notifications/delete", :method=>"post") do%>
+          <%= hidden_field_tag 'not_id', notify.id %>
+        <div>
+          <%= submit_tag("DELETE", :onclick=> "return confirm('Are you sure you want to delete the entry?')")%>
+        </div> <% end %> </td>
+        </tr>
+        <% end %>
+    </table> 
+      <h3><a href="/notifications/add" class= 'back1'>Add Reminder</a></h3>
+    <% end %>
+    </div>
+  </div>
+  <% 
+    if session[ :emsg ]=="filled" %>
+      <script>
+        window.alert("reminders Updated successfully!");
+      </script>
+    <%
+    session[ :emsg ]=nil
+    elsif session[ :emsg ]=="deleted" %>
+      <script>
+        window.alert("reminders deleted successfully!");
+      </script>
+    <%
+    session[ :emsg ]=nil
+    end
+   %>
+  </body>
+</html>
+

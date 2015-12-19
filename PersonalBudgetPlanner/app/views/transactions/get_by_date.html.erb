@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js" type="text/javascript"></script>
+  <script src="jquery.smart_autocomplete.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/modules/drilldown.js"></script>
+  <script src="bar_pie_charts.js" type="text/javascript" ></script>
+  </head>
+  <body>
+    <div class="form_date">
+      <h3><a href='/user_profile/home_page' class= 'back1'>Back</a></h3>
+      <h1 class="TbyDate">Transactions By Date</h1>
+      <% if !@expense_list.any? %>
+      <h1 class="error_message">No Transactions Present</h1>
+      <% else %>
+      <div class="Date" >
+      <select id="display_charts" onchange="userChange()">
+      <option value="barchart">Bar Chart</option>
+      <option value="piechart">Pie Chart</option>
+      </select>
+      </div>
+      <div id="barchart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+      <div id="piechart" style="min-width: 210px; height: 300px; margin: 0 auto"></div>
+      <table border="3" class="table-style" id ="printTable" style="margin-top:420px">
+      <th>Expense Type</th><th>Expense Amount</th><th>Expense Date</th><th>Expense Description</th><th>Action</th>
+      <% @expense_list.each do |exp| %>
+        <tr>
+          <td><%= exp.expense_type %></td>
+          <td><%= exp.expense_amount %></td>
+          <td><%= exp.expense_date %></td>
+          <td><%= exp.expense_desc %></td>
+          <td> <% session[:exp_id]=nil%>
+          <%= form_tag("/edit_expense/edit", :method=>"post") do%>
+            <%= hidden_field_tag 'exp_id', exp.id %>
+              <div>
+                <%= submit_tag("Edit")%>
+              </div> <% end %>
+          <%= form_tag("/edit_expense/delete", :method=>"post") do%>
+            <%= hidden_field_tag 'exp_id', exp.id %>
+              <div>
+                <%= submit_tag("Delete", :onclick=> "return confirm('Are you sure you want to delete the entry?')")%>
+              </div> <% end %> </td>
+        </tr>
+    <% end %>
+    </table>
+    <%end%>
+    </div>
+  </body>
+</html>

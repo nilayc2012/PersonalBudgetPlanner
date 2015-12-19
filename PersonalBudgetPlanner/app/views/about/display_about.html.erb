@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About</title>
+  </head>
+  <body>
+    <div class="about-header"></div>
+    <%= link_to "Back", "http://localhost:3000/welcome/index", method: "get", class: "back" %>
+    <div class="form1">
+      <ul class="tab-group">
+        <li class="tab active">
+          <a href="#signup">About </a>
+        </li>
+        <li class="tab">
+          <a href="#login">Developers</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="signup">
+          <h4 class="project_title1">Personal Budget Planner</h4>
+          <p class="about-content">
+            PBP is the best place to manage, monitor and share your personal expenses with friends, co-workers, classmates and complete strangers.
+          </p>
+          <p class="about-content">
+            With a very good User friendly interface, PBP is just what you need to keep track of your expenses and plan your budget according to it.
+          </p>
+        </div>
+        <div id="login">
+          <table class="Teamtable">
+            <tr>
+              <th class="TableHeader">Developers</th>
+              <th class="TableHeader">Intro</th>
+            </tr>
+            <tr>
+              <td><div class="ProfileImage" id ="nilay"></div></td>
+              <td>
+              <div class="ProfileDescription">
+                Nilay Chakraborty
+                <p class="designation">
+                  Software Engineer at Cerner Corp.
+                </p>
+                <p class="intro">
+                  Former Java Developer with over 3 years of experience. Now developing web applications on Ruby
+                </p>
+              </div></td>
+            </tr>
+
+            <tr>
+              <td><div class="ProfileImage" id ="manoj"></div></td>
+              <td>
+              <div class="ProfileDescription">
+                Manoj Satishkumar
+                <p class="designation">
+                  Software Engineer at Cerner Corp.
+                </p>
+                <p class="intro">
+                  Former C#.Net Developer with over 2 years of experience worked on USB compliance. Now working on web apps on Ruby
+                </p>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="ProfileImage" id ="vikram"></div></td>
+              <td>
+              <div class="ProfileDescription">
+                Vikram Raddi
+                <p class="designation">
+                  Software Engineer at Cerner Corp.
+                </p>
+                <p class="intro">
+                  Fresh to corporate world. Engaged with developing Ruby apps
+                </p>
+              </div></td>
+            </tr>
+          </table>
+        </div>
+      </div><!-- tab-content -->
+    </div>
+    <!-- /form -->
+    <
+    <script type="text/javascript" charset="utf-8">
+      $('.tab a').on('click', function(e) {
+      e.preventDefault();
+      $(this).parent().addClass('active');
+      $(this).parent().siblings().removeClass('active');
+      target=$(this).attr('href');
+      $('.tab-content > div').not(target).hide();
+      $(target).fadeIn(600);
+      });
+    </script>
+    >
+  </body>
+</html>
